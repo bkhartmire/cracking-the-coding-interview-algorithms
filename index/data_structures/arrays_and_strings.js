@@ -88,19 +88,54 @@ const rotateImage = matrix => {
   return rotatedMatrix;
 };
 
-const matrix = [
-  ["a", "a", "a", "a"],
-  ["b", "b", "b", "b"],
-  ["c", "c", "c", "c"],
-  ["d", "d", "d", "d"]
-];
-const rotatedMatrix = [
-  ["d", "c", "b", "a"],
-  ["d", "c", "b", "a"],
-  ["d", "c", "b", "a"],
-  ["d", "c", "b", "a"]
-];
-console.log(rotateImage(matrix)); // should be rotatedMatrix
+// const matrix = [
+//   ["a", "a", "a", "a"],
+//   ["b", "b", "b", "b"],
+//   ["c", "c", "c", "c"],
+//   ["d", "d", "d", "d"]
+// ];
+// const rotatedMatrix = [
+//   ["d", "c", "b", "a"],
+//   ["d", "c", "b", "a"],
+//   ["d", "c", "b", "a"],
+//   ["d", "c", "b", "a"]
+// ];
+// console.log(rotateImage(matrix)); // should be rotatedMatrix
+
 // 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
+//helper method
+const transformZeros = (matrix, row, column) => {
+  //figure out better way to make independent copy of deeply nested array
+  const result = JSON.parse(JSON.stringify(matrix));
+  result[row] = result[row].map(() => 0);
+  for (const row of result) {
+    row[column] = 0;
+  }
+  return result;
+};
+
+const zerosInMatrix = matrix => {
+  //figure out better way to make independent copy of deeply nested array
+  let result = JSON.parse(JSON.stringify(matrix));
+  for (let row = 0; row < matrix.length; row++) {
+    for (let column = 0; column < matrix[0].length; column++) {
+      if (matrix[row][column] === 0) {
+        result = transformZeros(result, row, column);
+      }
+    }
+  }
+  return result;
+};
+// const input = [
+//   [1, true, 0, "hi"],
+//   [null, "apple", 12, "hola"],
+//   ["orange", 1, false, "konnichiwa"]
+// ];
+// const output = [
+//   [0, 0, 0, 0],
+//   [null, "apple", 0, "hola"],
+//   ["orange", 1, 0, "konnichiwa"]
+// ];
+// console.log(zerosInMatrix(input)); //should be output
 // 1.8 Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (e.g., "waterbottle" is a rotation of "erbottlewat").
