@@ -13,6 +13,11 @@ class Node {
     }
     end.next = newTail;
   }
+
+  delete() {
+    this.value = this.next.value;
+    this.next = this.next.next;
+  }
 }
 
 // 2.1 Write code to remove duplicates from an unsorted linked list.
@@ -34,19 +39,19 @@ const removeDups = headNode => {
 };
 //Dup Linked List
 // 1 -> 2 -> 2 -> 3 -> 1 -> 4 -> 5
-const head = new Node(1);
-const two = new Node(2);
-head.next = two;
-const twoDup = new Node(2);
-two.next = twoDup;
-const three = new Node(3);
-twoDup.next = three;
-const oneDup = new Node(1);
-three.next = oneDup;
-const four = new Node(4);
-oneDup.next = four;
-const five = new Node(5);
-four.next = five;
+// const head = new Node(1);
+// const two = new Node(2);
+// head.next = two;
+// const twoDup = new Node(2);
+// two.next = twoDup;
+// const three = new Node(3);
+// twoDup.next = three;
+// const oneDup = new Node(1);
+// three.next = oneDup;
+// const four = new Node(4);
+// oneDup.next = four;
+// const five = new Node(5);
+// four.next = five;
 // console.log(head)
 // removeDups(head);
 // console.log(head)
@@ -79,7 +84,67 @@ const findKthToLastNode = (headNode, k) => {
 // Input: the node c from the linked list a -> b -> c -> d -> e
 // Result: nothing is returned, but the new linked list looks like a -> b -> d -> e
 
+// oneDup.delete();
+//implemented here as well as as a class method
+const deleteNode = node => {
+  node.value = node.next.value;
+  node.next = node.next.next;
+};
 // 2.4 Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x.
+const partition = (headNode, x) => {
+  let node = headNode;
+  let lastLessThanX;
+  let firstGreaterThanorEqualToX;
+  let lastGreaterThanorEqualToX;
+  while (node.next !== null) {
+    if (node.value < x) {
+      if (!lastLessThanX) {
+        lastLessThanX = node;
+      } else {
+        lastLessThanX.next = node;
+        lastLessThanX = node;
+      }
+    } else {
+      if (!firstGreaterThanorEqualToX) {
+        firstGreaterThanorEqualToX = node;
+        lastGreaterThanorEqualToX = node;
+      } else {
+        lastGreaterThanorEqualToX.next = node;
+        lastGreaterThanorEqualToX = node;
+      }
+    }
+    node = node.next;
+  }
+  //final node with null next
+  if (node.value < x) {
+    lastLessThanX.next = node;
+    lastLessThanX = node;
+  } else {
+    lastGreaterThanorEqualToX.next = node;
+    lastGreaterThanorEqualToX = node;
+  }
+  //append two linked lists
+  lastGreaterThanorEqualToX.next = null;
+  lastLessThanX.next = firstGreaterThanorEqualToX;
+};
+
+// 12 -> 2 -> 5 -> 11 -> 2 -> 16 -> 1
+// const head = new Node(12);
+// const two = new Node(2);
+// head.next = two;
+// const five = new Node(5);
+// two.next = five;
+// const eleven = new Node(11);
+// five.next = eleven;
+// const twoDup = new Node(2);
+// eleven.next = twoDup;
+// const sixteen = new Node(16);
+// twoDup.next = sixteen;
+// const one = new Node(1);
+// sixteen.next = one;
+// console.log(head);
+// partition(head, 10);
+// console.log(head);
 
 // 2.5 You have two numbers represented by a linked list, where each node contains a single digit.
 // The digits are stored in reverse order, such that the 1's digit is at the head of the list.
