@@ -70,10 +70,37 @@ const compress = string => {
   compressedString = compressedString.concat(count);
   return compressedString.length < string.length ? compressedString : string;
 };
-console.log(compress("aabcccccaaa")); // should be "a2b1c5a3"
-console.log(compress("aa")); // should be "aa"
+// console.log(compress("aabcccccaaa")); // should be "a2b1c5a3"
+// console.log(compress("aa")); // should be "aa"
+
 // 1.6 Given an image represented by an NxN marix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 
+const rotateImage = matrix => {
+  const rotatedMatrix = [];
+  for (let i = 0; i < matrix[0].length; i++) {
+    rotatedMatrix.push([]);
+  }
+  for (let index = 0; index < matrix.length; index++) {
+    for (const row of rotatedMatrix) {
+      row.unshift(matrix[index][index]);
+    }
+  }
+  return rotatedMatrix;
+};
+
+const matrix = [
+  ["a", "a", "a", "a"],
+  ["b", "b", "b", "b"],
+  ["c", "c", "c", "c"],
+  ["d", "d", "d", "d"]
+];
+const rotatedMatrix = [
+  ["d", "c", "b", "a"],
+  ["d", "c", "b", "a"],
+  ["d", "c", "b", "a"],
+  ["d", "c", "b", "a"]
+];
+console.log(rotateImage(matrix)); // should be rotatedMatrix
 // 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
 // 1.8 Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (e.g., "waterbottle" is a rotation of "erbottlewat").
