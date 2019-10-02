@@ -167,9 +167,12 @@ const isSubstringAlternative = (s1, s2) => {
   return stringIncludes(s1, s2) || stringIncludes(s2, s1);
 };
 
+// Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring
 const isRotation = (s1, s2) => {
   if (typeof s1 !== "string" || typeof s2 !== "string")
     throw new Error("must pass in two strings as arguments");
+  if (s1.length !== s2.length) return false;
+  return isSubstring(s1 + s1, s2);
 };
 
 console.log(stringIncludes("water", "wat")); //should be true
@@ -182,5 +185,8 @@ console.log(isSubstringAlternative("waterbottle", "water")); // should be true
 console.log(isSubstringAlternative("water", "waterbottle")); // should be true
 console.log(isSubstringAlternative("water", "coffee")); // should be false
 console.log(isSubstringAlternative("waterbottle", "erbottlewat")); //should be false
+console.log(isRotation("waterbottle", "aterbottlew")); //should be true
 console.log(isRotation("waterbottle", "erbottlewat")); //should be true
+console.log(isRotation("waterbottle", "bottlewater")); //should be true
 console.log(isRotation("waterbottle", "water")); // should be false
+console.log(isRotation("waterbottle", "otleratwbe")); // should be false
