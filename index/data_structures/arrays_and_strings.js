@@ -17,6 +17,27 @@ const isUnique = string => {
 
 // 1.2 Implement a function void reverse(char*str) in C or C++ which reverses a null-terminated string.
 
+// first here's the most obvious solution in JavaScript
+// const reverseString = string => {
+//   return string
+//     .split("")
+//     .reverse()
+//     .join("");
+// };
+
+// alternative JS solution that doesn't use built-in reverse method
+const reverseString = string => {
+  let result = string.split("");
+  for (let i = 0; i < string.length / 2; i++) {
+    const firstOriginal = result[i];
+    const secondOriginal = result[result.length - i - 1];
+    result[i] = secondOriginal;
+    result[result.length - i - 1] = firstOriginal;
+  }
+  return result.join("");
+};
+// console.log(reverseString("abcdefg"));
+// console.log(reverseString("hello!"));
 // 1.3 Given two strings, write a method to decide if one is a permutation of the other.
 const isPermutation = (stringA, stringB) => {
   if (typeof stringA !== "string" || typeof stringB !== "string")
