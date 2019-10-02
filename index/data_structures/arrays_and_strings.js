@@ -143,10 +143,28 @@ const zerosInMatrix = matrix => {
 // Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring
 // (e.g., "waterbottle" is a rotation of "erbottlewat").
 
+// solution using built-in JavaScript includes method
 const isSubstring = (s1, s2) => {
   if (typeof s1 !== "string" || typeof s2 !== "string")
     throw new Error("must pass in two strings as arguments");
   return s1.includes(s2) || s2.includes(s1);
+};
+
+// helper method that provides functionality of of built-in JavaScript includes method for strings for alternative isSubstring solution
+const stringIncludes = (s1, s2) => {
+  const charLength = s2.length;
+  if (s1.length < charLength) return false;
+  for (let i = 0; i < s1.length - charLength; i++) {
+    if (s1.slice(i, i + charLength) === s2) return true;
+  }
+  return false;
+};
+
+// alternative solution that uses my own implementation of includes for strings
+const isSubstringAlternative = (s1, s2) => {
+  if (typeof s1 !== "string" || typeof s2 !== "string")
+    throw new Error("must pass in two strings as arguments");
+  return stringIncludes(s1, s2) || stringIncludes(s2, s1);
 };
 
 const isRotation = (s1, s2) => {
@@ -154,9 +172,15 @@ const isRotation = (s1, s2) => {
     throw new Error("must pass in two strings as arguments");
 };
 
+console.log(stringIncludes("water", "wat")); //should be true
+console.log(stringIncludes("wat", "water")); //should be false
 console.log(isSubstring("water", "waterbottle")); // should be true
 console.log(isSubstring("waterbottle", "water")); // should be true
 console.log(isSubstring("water", "coffee")); // should be false
 console.log(isSubstring("waterbottle", "erbottlewat")); //should be false
+console.log(isSubstringAlternative("waterbottle", "water")); // should be true
+console.log(isSubstringAlternative("water", "waterbottle")); // should be true
+console.log(isSubstringAlternative("water", "coffee")); // should be false
+console.log(isSubstringAlternative("waterbottle", "erbottlewat")); //should be false
 console.log(isRotation("waterbottle", "erbottlewat")); //should be true
 console.log(isRotation("waterbottle", "water")); // should be false
