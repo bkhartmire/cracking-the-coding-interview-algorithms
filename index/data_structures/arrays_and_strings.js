@@ -1,4 +1,19 @@
-// 1.1 Implement an algorithm to determine if a string ahs all unique characters. What if you cannot use additional data structures?
+// 1.1 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
+const isUnique = string => {
+    const characters = {}
+    for (const char of string) {
+        if (characters[char]) {
+            return false
+        } else {
+            characters[char] = 1
+        }
+    }
+    return true
+}
+// console.log(isUnique("hello")) // should be false
+// console.log(isUnique("helium")) // should be true
+// console.log(isUnique("unique")) // should be false
+// console.log(isUnique("uniqlo")) // should be true
 
 // 1.2 Implement a function void reverse(char*str) in C or C++ which reverses a null-terminated string.
 
