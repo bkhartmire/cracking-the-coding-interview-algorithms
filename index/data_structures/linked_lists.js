@@ -1,6 +1,23 @@
+//Singly Linked List
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+
+  appendToTail(value) {
+    const newTail = new Node(value);
+    const end = this.next;
+    while (this.next !== null) {
+      end = end.next;
+    }
+    end.next = newTail;
+  }
+}
+
 // 2.1 Write code to remove duplicates from an unsorted linked list.
 // FOLLOW UP
-// How would you solve thsi problem if a temporary buffer is not allowed?
+// How would you solve this problem if a temporary buffer is not allowed?
 
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
 
