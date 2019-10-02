@@ -19,6 +19,38 @@ class Node {
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
 
+const removeDups = headNode => {
+  const hash = {};
+  hash[headNode.value] = 1;
+  node = headNode;
+  while (node.next !== null) {
+    if (hash[node.next.value]) {
+      node.next = node.next.next;
+    } else {
+      hash[node.next.value] = 1;
+    }
+    node = node.next;
+  }
+};
+//Dup Linked List
+// 1 -> 2 -> 2 -> 3 -> 1 -> 4 -> 5
+// const head = new Node(1);
+// const two = new Node(2);
+// head.next = two;
+// const twoDup = new Node(2);
+// two.next = twoDup;
+// const three = new Node(3);
+// twoDup.next = three;
+// const oneDup = new Node(1);
+// three.next = oneDup;
+// const four = new Node(4);
+// oneDup.next = four;
+// const five = new Node(5);
+// four.next = five;
+// console.log(head)
+// removeDups(head);
+// console.log(head)
+
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
 
 // 2.3 Implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node.
