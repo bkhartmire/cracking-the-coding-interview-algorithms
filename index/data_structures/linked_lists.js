@@ -158,6 +158,53 @@ const partition = (headNode, x) => {
 // Input: (6 -> 1 -> 7) + (2 -> 9 -> 5). That is 617 + 295.
 // Output: 9 -> 1 -> 2. That is, 912.
 
+// helper method takes linked list and returns array of all values starting from head
+const linkedListToArr = head => {
+  const result = [];
+  let node = head;
+  while (node.next !== null) {
+    result.push(node.value);
+    node = node.next;
+  }
+  result.push(node.value);
+  return result;
+};
+
+// helper method takes in array of values and returns linked list in forward order
+const arrToLinkedList = arr => {
+  const nodes = arr.map(value => new Node(value));
+  for (let i = 0; i < arr.length - 1; i++) {
+    nodes[i].next = nodes[i + 1];
+  }
+  return nodes[0];
+};
+
+const sumLinkedLists = (head1, head2) => {
+  // if digits are stored in forward order, simply remove all of the reverse methods below
+  const num1 = ~~linkedListToArr(head1)
+    .reverse()
+    .join("");
+  const num2 = ~~linkedListToArr(head2)
+    .reverse()
+    .join("");
+  const sumArr = (num1 + num2).toString().split("");
+  return arrToLinkedList(sumArr.reverse());
+};
+
+// const head1 = new Node(7);
+// const one = new Node(1);
+// head1.next = one;
+// const six = new Node(6);
+// one.next = six;
+
+// const head2 = new Node(5);
+// const nine = new Node(9);
+// head2.next = nine;
+// const two = new Node(2);
+// nine.next = two;
+
+// console.log(sumLinkedLists(head1, head2));
+
 // 2.6 Given a circular linked list, implement an algorithm which returns the node at the beginning of the loop.
 // DEFINITION
 // Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so as to make a loop in the linked list.
