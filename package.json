@@ -1,0 +1,21 @@
+{
+  "name": "cracking-the-coding-interview-algorithms",
+  "version": "1.0.0",
+  "description": "Algorithm specs and solutions from Gayle McDowells's Cracking the Coding Interview in JavaScript",
+  "main": "index.js",
+  "repository": "https://github.com/bkhartmire/cracking-the-coding-interview-algorithms",
+  "author": "Brittany Hartmire",
+  "license": "MIT",
+  "scripts": {
+    "test": "mocha ./spec"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-problems": "^0.1.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "mocha": "^5.1.1",
+    "prettier": "^1.12.1"
+  }
+}
