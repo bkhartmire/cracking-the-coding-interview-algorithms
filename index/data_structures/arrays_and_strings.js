@@ -175,18 +175,18 @@ const isRotation = (s1, s2) => {
   return isSubstring(s1 + s1, s2);
 };
 
-console.log(stringIncludes("water", "wat")); //should be true
-console.log(stringIncludes("wat", "water")); //should be false
-console.log(isSubstring("water", "waterbottle")); // should be true
-console.log(isSubstring("waterbottle", "water")); // should be true
-console.log(isSubstring("water", "coffee")); // should be false
-console.log(isSubstring("waterbottle", "erbottlewat")); //should be false
-console.log(isSubstringAlternative("waterbottle", "water")); // should be true
-console.log(isSubstringAlternative("water", "waterbottle")); // should be true
-console.log(isSubstringAlternative("water", "coffee")); // should be false
-console.log(isSubstringAlternative("waterbottle", "erbottlewat")); //should be false
-console.log(isRotation("waterbottle", "aterbottlew")); //should be true
-console.log(isRotation("waterbottle", "erbottlewat")); //should be true
-console.log(isRotation("waterbottle", "bottlewater")); //should be true
-console.log(isRotation("waterbottle", "water")); // should be false
-console.log(isRotation("waterbottle", "otleratwbe")); // should be false
+// console.log(stringIncludes("water", "wat")); //should be true
+// console.log(stringIncludes("wat", "water")); //should be false
+// console.log(isSubstring("water", "waterbottle")); // should be true
+// console.log(isSubstring("waterbottle", "water")); // should be true
+// console.log(isSubstring("water", "coffee")); // should be false
+// console.log(isSubstring("waterbottle", "erbottlewat")); //should be false
+// console.log(isSubstringAlternative("waterbottle", "water")); // should be true
+// console.log(isSubstringAlternative("water", "waterbottle")); // should be true
+// console.log(isSubstringAlternative("water", "coffee")); // should be false
+// console.log(isSubstringAlternative("waterbottle", "erbottlewat")); //should be false
+// console.log(isRotation("waterbottle", "aterbottlew")); //should be true
+// console.log(isRotation("waterbottle", "erbottlewat")); //should be true
+// console.log(isRotation("waterbottle", "bottlewater")); //should be true
+// console.log(isRotation("waterbottle", "water")); // should be false
+// console.log(isRotation("waterbottle", "otleratwbe")); // should be false
