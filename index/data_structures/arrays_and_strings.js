@@ -18,11 +18,31 @@ const isUnique = string => {
 // 1.2 Implement a function void reverse(char*str) in C or C++ which reverses a null-terminated string.
 
 // 1.3 Given two strings, write a method to decide if one is a permutation of the other.
+const isPermutation = (stringA, stringB) => {
+    if (typeof stringA !== "string" || typeof stringB !== "string") throw new Error("must pass in two strings as arguments")
+    return JSON.stringify(stringA.split("").sort()) === JSON.stringify(stringB.split("").sort())
+}
+// console.log(isPermutation("hello", "lolhe")) // should be true
+// console.log(isPermutation("hello", "goodbye")) // should be false
+// console.log(isPermutation(1, "throw error")) // should throw error
+// console.log(isPermutation("only one argument")) // should throw error
 
 // 1.4 Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end of the string to hold the additional characters, and that you are given the 'true' length of the string.
 // EXAMPLE
 // Input: "Mr John Smith     ", 13
 // Output: "Mr%20John%20Smith"
+
+const replaceSpaces = (string, length) => {
+    if (typeof string !== "string") throw new Error("first argument must be a string")
+    if (typeof length !== "number") throw new Error("second argument must be a number indicating length of string")
+    let result = ""
+    for (let i = 0; i < length; i++) {
+        string[i] === " " ? result = result.concat("%20") :
+        result = result.concat(string[i])
+    }
+    return result
+}
+// console.log(replaceSpaces("Mr John Smith     ", 13))
 
 // 1.5 Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2b1c5a3. If the "compressed" string wouldn ot become smaller than the original string, your method should return the original string. You can assume the string has only upper and lower case letters (a-z)
 
