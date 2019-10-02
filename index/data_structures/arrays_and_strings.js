@@ -1,15 +1,15 @@
 // 1.1 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
 const isUnique = string => {
-    const characters = {}
-    for (const char of string) {
-        if (characters[char]) {
-            return false
-        } else {
-            characters[char] = 1
-        }
+  const characters = {};
+  for (const char of string) {
+    if (characters[char]) {
+      return false;
+    } else {
+      characters[char] = 1;
     }
-    return true
-}
+  }
+  return true;
+};
 // console.log(isUnique("hello")) // should be false
 // console.log(isUnique("helium")) // should be true
 // console.log(isUnique("unique")) // should be false
@@ -19,9 +19,13 @@ const isUnique = string => {
 
 // 1.3 Given two strings, write a method to decide if one is a permutation of the other.
 const isPermutation = (stringA, stringB) => {
-    if (typeof stringA !== "string" || typeof stringB !== "string") throw new Error("must pass in two strings as arguments")
-    return JSON.stringify(stringA.split("").sort()) === JSON.stringify(stringB.split("").sort())
-}
+  if (typeof stringA !== "string" || typeof stringB !== "string")
+    throw new Error("must pass in two strings as arguments");
+  return (
+    JSON.stringify(stringA.split("").sort()) ===
+    JSON.stringify(stringB.split("").sort())
+  );
+};
 // console.log(isPermutation("hello", "lolhe")) // should be true
 // console.log(isPermutation("hello", "goodbye")) // should be false
 // console.log(isPermutation(1, "throw error")) // should throw error
@@ -33,19 +37,41 @@ const isPermutation = (stringA, stringB) => {
 // Output: "Mr%20John%20Smith"
 
 const replaceSpaces = (string, length) => {
-    if (typeof string !== "string") throw new Error("first argument must be a string")
-    if (typeof length !== "number") throw new Error("second argument must be a number indicating length of string")
-    let result = ""
-    for (let i = 0; i < length; i++) {
-        string[i] === " " ? result = result.concat("%20") :
-        result = result.concat(string[i])
+  if (typeof string !== "string")
+    throw new Error("first argument must be a string");
+  if (typeof length !== "number")
+    throw new Error(
+      "second argument must be a number indicating length of string"
+    );
+  let result = "";
+  for (let i = 0; i < length; i++) {
+    string[i] === " "
+      ? (result = result.concat("%20"))
+      : (result = result.concat(string[i]));
+  }
+  return result;
+};
+// console.log(replaceSpaces("Mr John Smith     ", 13)) // should be "Mr%20John%20Smith"
+
+// 1.5 Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2b1c5a3. If the "compressed" string would not become smaller than the original string, your method should return the original string. You can assume the string has only upper and lower case letters (a-z)
+
+const compress = string => {
+  if (typeof string !== "string") throw new Error("must pass in string");
+  let compressedString = string[0];
+  let count = 1;
+  for (const char of string.slice(1)) {
+    if (compressedString[compressedString.length - 1] === char) {
+      count++;
+    } else {
+      compressedString = compressedString.concat(count, char);
+      count = 1;
     }
-    return result
-}
-// console.log(replaceSpaces("Mr John Smith     ", 13))
-
-// 1.5 Implement a method to perform basic string compression using the counts of repeated characters. For example, the string aabcccccaaa would become a2b1c5a3. If the "compressed" string wouldn ot become smaller than the original string, your method should return the original string. You can assume the string has only upper and lower case letters (a-z)
-
+  }
+  compressedString = compressedString.concat(count);
+  return compressedString.length < string.length ? compressedString : string;
+};
+console.log(compress("aabcccccaaa")); // should be "a2b1c5a3"
+console.log(compress("aa")); // should be "aa"
 // 1.6 Given an image represented by an NxN marix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 
 // 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
