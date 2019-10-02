@@ -1,0 +1,1 @@
+This repository contains algorithm solutions found in Gayle McDowells's book, Cracking the Coding Interview. Files are organized according to the book chapters, solutions are written in JavaScript, and the specs use the JS testing libraries Mocha and Chai.
