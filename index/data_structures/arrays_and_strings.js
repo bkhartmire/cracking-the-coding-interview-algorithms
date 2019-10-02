@@ -138,4 +138,25 @@ const zerosInMatrix = matrix => {
 //   ["orange", 1, 0, "konnichiwa"]
 // ];
 // console.log(zerosInMatrix(input)); //should be output
-// 1.8 Assume you have a method isSubstring which checks if one word is a substring of another. Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring (e.g., "waterbottle" is a rotation of "erbottlewat").
+
+// 1.8 Assume you have a method isSubstring which checks if one word is a substring of another.
+// Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring
+// (e.g., "waterbottle" is a rotation of "erbottlewat").
+
+const isSubstring = (s1, s2) => {
+  if (typeof s1 !== "string" || typeof s2 !== "string")
+    throw new Error("must pass in two strings as arguments");
+  return s1.includes(s2) || s2.includes(s1);
+};
+
+const isRotation = (s1, s2) => {
+  if (typeof s1 !== "string" || typeof s2 !== "string")
+    throw new Error("must pass in two strings as arguments");
+};
+
+console.log(isSubstring("water", "waterbottle")); // should be true
+console.log(isSubstring("waterbottle", "water")); // should be true
+console.log(isSubstring("water", "coffee")); // should be false
+console.log(isSubstring("waterbottle", "erbottlewat")); //should be false
+console.log(isRotation("waterbottle", "erbottlewat")); //should be true
+console.log(isRotation("waterbottle", "water")); // should be false
