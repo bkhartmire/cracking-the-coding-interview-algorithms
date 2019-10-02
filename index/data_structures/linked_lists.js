@@ -236,4 +236,38 @@ const getLoopedNode = head => {
 // d.next = e;
 // e.next = c;
 // console.log(getLoopedNode(head));
+
 // 2.7 Implement a function to check if a linked list is a palindrome.
+const isPalindrome = head => {
+  let result = "";
+  let node = head;
+  while (node.next !== null) {
+    result = result.concat(node.value);
+    node = node.next;
+  }
+  result = result.concat(node.value);
+  return (
+    result ===
+    result
+      .split("")
+      .reverse()
+      .join("")
+  );
+};
+
+// MIKE KIM
+// const head = new Node("M");
+// const i1 = new Node("I");
+// head.next = i1;
+// const k1 = new Node("K");
+// i1.next = k1;
+// const e1 = new Node("E");
+// k1.next = e1;
+// const k2 = new Node("K");
+// e1.next = k2;
+// const i2 = new Node("I");
+// k2.next = i2;
+// const m2 = new Node("M");
+// i2.next = m2;
+// console.log(isPalindrome(head)); // should be true
+// console.log(isPalindrome(k2)); // should be false
