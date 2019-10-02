@@ -212,4 +212,28 @@ const sumLinkedLists = (head1, head2) => {
 // Input: A -> B -> C -> D -> E -> C[the same C as earlier]
 // Output: C
 
+const getLoopedNode = head => {
+  // doesn't assume that every value is unique. it is possible for there to be duplicate node values
+  const uniqueNodes = [];
+  let node = head;
+  while (node.next !== null) {
+    uniqueNodes.push(node);
+    if (uniqueNodes.includes(node.next)) {
+      return node.next;
+    }
+    node = node.next;
+  }
+};
+
+// const head = new Node("A");
+// const b = new Node("B");
+// head.next = b;
+// const c = new Node("C");
+// b.next = c;
+// const d = new Node("D");
+// c.next = d;
+// const e = new Node("E");
+// d.next = e;
+// e.next = c;
+// console.log(getLoopedNode(head));
 // 2.7 Implement a function to check if a linked list is a palindrome.
