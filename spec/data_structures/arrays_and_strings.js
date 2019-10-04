@@ -11,6 +11,7 @@ const {
   compress,
   rotateImage,
   zerosInMatrix,
+  isSubstring,
   isSubstringAlternative,
   isRotation
 } = require("../../index/data_structures/arrays_and_strings");
@@ -51,7 +52,7 @@ describe("arrays and strings algorithms", () => {
   });
 
   describe("isPermuation", () => {
-    it("should throw an error if both inputs aren't strings", () => {
+    it("should throw an error if input is not two strings", () => {
       expect(() => isPermutation(null)).to.throw;
       expect(() => isPermutation(100, "string")).to.throw;
       expect(() => isPermutation("pineapple")).to.throw;
@@ -158,7 +159,7 @@ describe("arrays and strings algorithms", () => {
       expect(Array.prototype.includes).to.have.callCount(0);
       Array.prototype.includes.restore();
     });
-    it("should throw an error if both inputs are not strings", () => {
+    it("should throw an error if input is not strings", () => {
       expect(() => isSubstringAlternative(null)).to.throw;
       expect(() => isSubstringAlternative(100, "string")).to.throw;
       expect(() => isSubstringAlternative("pineapple")).to.throw;
@@ -169,10 +170,28 @@ describe("arrays and strings algorithms", () => {
       expect(() => isSubstringAlternative({ a: 22 })).to.throw;
     });
     it("should return whether one string is a substring of another", () => {
-      expect(isSubstring("waterbottle", "water")).to.be.true;
+      expect(isSubstringAlternative("waterbottle", "water")).to.be.true;
       expect(isSubstringAlternative("water", "waterbottle")).to.be.true;
       expect(isSubstringAlternative("water", "coffee")).to.be.false;
       expect(isSubstringAlternative("waterbottle", "erbottlewat")).to.be.false;
+    });
+  });
+  describe("isRotation", () => {
+    it("should throw an error if input is not two strings", () => {
+      expect(() => isRotation(null)).to.throw;
+      expect(() => isRotation(100, "string")).to.throw;
+      expect(() => isRotation("pineapple")).to.throw;
+      expect(() => isRotation("valid", false)).to.throw;
+      expect(() => isRotation(false)).to.throw;
+      expect(() => isRotation(["hello", "I'm in an array"])).to.throw;
+      expect(() => isRotation({ a: 22 })).to.throw;
+    });
+    it("should return whether the second input is a rotation of the first input", () => {
+      expect(isRotation("waterbottle", "aterbottlew")).to.be.true;
+      expect(isRotation("waterbottle", "erbottlewat")).to.be.true;
+      expect(isRotation("waterbottle", "bottlewater")).to.be.true;
+      expect(isRotation("waterbottle", "water")).to.be.false;
+      expect(isRotation("waterbottle", "otleratwbe")).to.be.false;
     });
   });
 });
