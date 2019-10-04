@@ -50,7 +50,7 @@ class SetOfStacks {
 // console.log(newSet.pop());
 // console.log(newSet.stacks);
 
-// 3.4 In the class problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower.
+// 3.4 In the classic problem of the Towers of Hanoi, you have 3 towers and N disks of different sizes which can slide onto any tower.
 // The puzzle starts with disks sorted in ascending order of size from top to bottom (i.e., each disk sits on top of an even larger one).
 // You have the following constraints:
 // (1) Only one disk can be moved at a time.
