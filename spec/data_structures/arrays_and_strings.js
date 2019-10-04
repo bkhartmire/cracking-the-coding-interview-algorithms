@@ -65,4 +65,31 @@ describe("arrays and strings algorithms", () => {
       expect(isPermutation("apple", "pineapple")).to.be.false;
     });
   });
+
+  describe("replaceSpaces", () => {
+    it("should throw error if first argument isn't a string", () => {
+      expect(() => replaceSpaces(true, 12)).to.throw(
+        "first argument must be a string"
+      );
+      expect(() => replaceSpaces(40, 50)).to.throw(
+        "first argument must be a string"
+      );
+    });
+    it("should throw an error if the second argument isn't a number", () => {
+      expect(() => replaceSpaces("two", "strings")).to.throw(
+        "second argument must be a number indicating length of string"
+      );
+      expect(() => replaceSpaces("two", "strings")).to.throw(
+        "second argument must be a number indicating length of string"
+      );
+      expect(() => replaceSpaces("no number")).to.throw(
+        "second argument must be a number indicating length of string"
+      );
+    });
+    it("should replace spaces in a string with %20", () => {
+      expect(replaceSpaces("Mr John Smith     ", 13)).to.equal(
+        "Mr%20John%20Smith"
+      );
+    });
+  });
 });
