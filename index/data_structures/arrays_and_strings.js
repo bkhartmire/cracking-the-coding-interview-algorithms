@@ -29,6 +29,7 @@ const isUnique = string => {
 
 // alternative JS solution that doesn't use built-in reverse method
 const reverseString = string => {
+  if (typeof string !== "string") throw new Error("input must be a string");
   let result = string.split("");
   for (let i = 0; i < string.length / 2; i++) {
     const firstOriginal = result[i];
