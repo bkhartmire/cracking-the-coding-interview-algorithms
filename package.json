@@ -17,5 +17,9 @@
     "eslint-plugin-prettier": "^2.6.0",
     "mocha": "^5.1.1",
     "prettier": "^1.12.1"
+  },
+  "dependencies": {
+    "sinon": "^7.5.0",
+    "sinon-chai": "^3.3.0"
   }
 }
