@@ -130,4 +130,20 @@ describe("arrays and strings algorithms", () => {
       expect(rotateImage(input)).to.deep.equal(expected);
     });
   });
+
+  describe("zerosInMatrix", () => {
+    it("should fill rows and columns with zeros whereever a zero is located in the matrix input", () => {
+      const input = [
+        [1, true, 0, "hi"],
+        [null, "apple", 12, "hola"],
+        ["orange", 1, false, "konnichiwa"]
+      ];
+      const expected = [
+        [0, 0, 0, 0],
+        [null, "apple", 0, "hola"],
+        ["orange", 1, 0, "konnichiwa"]
+      ];
+      expect(zerosInMatrix(input)).to.deep.equal(expected);
+    });
+  });
 });
