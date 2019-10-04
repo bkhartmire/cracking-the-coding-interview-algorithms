@@ -1,4 +1,6 @@
 // 1.1 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
+//TO DO: Follow up and remove additional data structures
+
 const isUnique = string => {
   if (typeof string !== "string") throw new Error("input must be a string");
   const characters = {};
@@ -11,11 +13,6 @@ const isUnique = string => {
   }
   return true;
 };
-//TO DO: Follow up and remove additional data structures
-// console.log(isUnique("hello")) // should be false
-// console.log(isUnique("helium")) // should be true
-// console.log(isUnique("unique")) // should be false
-// console.log(isUnique("uniqlo")) // should be true
 
 // 1.2 Implement a function void reverse(char*str) in C or C++ which reverses a null-terminated string.
 
@@ -39,8 +36,7 @@ const reverseString = string => {
   }
   return result.join("");
 };
-// console.log(reverseString("abcdefg"));
-// console.log(reverseString("hello!"));
+
 // 1.3 Given two strings, write a method to decide if one is a permutation of the other.
 const isPermutation = (stringA, stringB) => {
   if (typeof stringA !== "string" || typeof stringB !== "string")
@@ -50,10 +46,6 @@ const isPermutation = (stringA, stringB) => {
     JSON.stringify(stringB.split("").sort())
   );
 };
-// console.log(isPermutation("hello", "lolhe")) // should be true
-// console.log(isPermutation("hello", "goodbye")) // should be false
-// console.log(isPermutation(1, "throw error")) // should throw error
-// console.log(isPermutation("only one argument")) // should throw error
 
 // 1.4 Write a method to replace all spaces in a string with '%20'. You may assume that the string has sufficient space at the end of the string to hold the additional characters, and that you are given the 'true' length of the string.
 // EXAMPLE
@@ -63,7 +55,7 @@ const isPermutation = (stringA, stringB) => {
 const replaceSpaces = (string, length) => {
   if (typeof string !== "string")
     throw new Error("first argument must be a string");
-  if (typeof length !== "number")
+  if (!length || typeof length !== "number")
     throw new Error(
       "second argument must be a number indicating length of string"
     );
