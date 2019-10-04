@@ -30,4 +30,20 @@ describe("arrays and strings algorithms", () => {
       expect(() => isUnique({})).to.throw;
     });
   });
+
+  describe("reverseString", () => {
+    it("should return reversed version of string input", () => {
+      expect(reverseString("abcdefg")).to.equal("gfedcba");
+      expect(reverseString("hello!!")).to.equal("!!olleh");
+    });
+    it("should throw an error if the input isn't a string", () => {
+      expect(() => reverseString(null)).to.throw;
+      expect(() => reverseString(100)).to.throw;
+      expect(() => reverseString(undefined)).to.throw;
+      expect(() => reverseString(true)).to.throw;
+      expect(() => reverseString(false)).to.throw;
+      expect(() => reverseString([])).to.throw;
+      expect(() => reverseString({})).to.throw;
+    });
+  });
 });
