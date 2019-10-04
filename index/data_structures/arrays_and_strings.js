@@ -88,8 +88,6 @@ const compress = string => {
   compressedString = compressedString.concat(count);
   return compressedString.length < string.length ? compressedString : string;
 };
-// console.log(compress("aabcccccaaa")); // should be "a2b1c5a3"
-// console.log(compress("aa")); // should be "aa"
 
 // 1.6 Given an image represented by an NxN marix, where each pixel in the image is 4 bytes, write a method to rotate the image by 90 degrees. Can you do this in place?
 
@@ -105,20 +103,6 @@ const rotateImage = matrix => {
   }
   return rotatedMatrix;
 };
-
-// const matrix = [
-//   ["a", "a", "a", "a"],
-//   ["b", "b", "b", "b"],
-//   ["c", "c", "c", "c"],
-//   ["d", "d", "d", "d"]
-// ];
-// const rotatedMatrix = [
-//   ["d", "c", "b", "a"],
-//   ["d", "c", "b", "a"],
-//   ["d", "c", "b", "a"],
-//   ["d", "c", "b", "a"]
-// ];
-// console.log(rotateImage(matrix)); // should be rotatedMatrix
 
 // 1.7 Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
@@ -145,17 +129,6 @@ const zerosInMatrix = matrix => {
   }
   return result;
 };
-// const input = [
-//   [1, true, 0, "hi"],
-//   [null, "apple", 12, "hola"],
-//   ["orange", 1, false, "konnichiwa"]
-// ];
-// const output = [
-//   [0, 0, 0, 0],
-//   [null, "apple", 0, "hola"],
-//   ["orange", 1, 0, "konnichiwa"]
-// ];
-// console.log(zerosInMatrix(input)); //should be output
 
 // 1.8 Assume you have a method isSubstring which checks if one word is a substring of another.
 // Given two strings, s1 and s2, write code to check if s2 is a rotation of s1 using only one call to isSubstring
@@ -193,22 +166,6 @@ const isRotation = (s1, s2) => {
   return isSubstring(s1 + s1, s2);
 };
 
-// console.log(stringIncludes("water", "wat")); //should be true
-// console.log(stringIncludes("wat", "water")); //should be false
-// console.log(isSubstring("water", "waterbottle")); // should be true
-// console.log(isSubstring("waterbottle", "water")); // should be true
-// console.log(isSubstring("water", "coffee")); // should be false
-// console.log(isSubstring("waterbottle", "erbottlewat")); //should be false
-// console.log(isSubstringAlternative("waterbottle", "water")); // should be true
-// console.log(isSubstringAlternative("water", "waterbottle")); // should be true
-// console.log(isSubstringAlternative("water", "coffee")); // should be false
-// console.log(isSubstringAlternative("waterbottle", "erbottlewat")); //should be false
-// console.log(isRotation("waterbottle", "aterbottlew")); //should be true
-// console.log(isRotation("waterbottle", "erbottlewat")); //should be true
-// console.log(isRotation("waterbottle", "bottlewater")); //should be true
-// console.log(isRotation("waterbottle", "water")); // should be false
-// console.log(isRotation("waterbottle", "otleratwbe")); // should be false
-
 module.exports = {
   isUnique,
   reverseString,
@@ -218,6 +175,7 @@ module.exports = {
   rotateImage,
   transformZeros,
   zerosInMatrix,
+  isSubstring,
   isSubstringAlternative,
   isRotation
 };
