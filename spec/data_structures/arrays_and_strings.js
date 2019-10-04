@@ -92,4 +92,23 @@ describe("arrays and strings algorithms", () => {
       );
     });
   });
+  describe("compress", () => {
+    it("should throw an error if the input isn't a string", () => {
+      expect(() => compress(null)).to.throw;
+      expect(() => compress(100)).to.throw;
+      expect(() => compress(undefined)).to.throw;
+      expect(() => compress(true)).to.throw;
+      expect(() => compress(false)).to.throw;
+      expect(() => compress([])).to.throw;
+      expect(() => compress({})).to.throw;
+    });
+    it("should compress string with counts of repeated characters", () => {
+      expect(compress("aabcccccaaa")).to.equal("a2b1c5a3");
+      expect(compress("zzzzzzzz")).to.equal("z8");
+    });
+    it("should return original string if the compressed version isn't shorter", () => {
+      expect(compress("aa")).to.equal("aa");
+      expect(compress("abcdefg")).to.equal("abcdefg");
+    });
+  });
 });
