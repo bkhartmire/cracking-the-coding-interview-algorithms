@@ -52,6 +52,8 @@ const isPermutation = (stringA, stringB) => {
 // Input: "Mr John Smith     ", 13
 // Output: "Mr%20John%20Smith"
 
+//the length of a string isn't fixed in JavaScript, but this alg removes the trailing white spaces according to the defined length
+
 const replaceSpaces = (string, length) => {
   if (typeof string !== "string")
     throw new Error("first argument must be a string");
