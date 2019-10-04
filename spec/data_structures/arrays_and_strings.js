@@ -92,6 +92,7 @@ describe("arrays and strings algorithms", () => {
       );
     });
   });
+
   describe("compress", () => {
     it("should throw an error if the input isn't a string", () => {
       expect(() => compress(null)).to.throw;
@@ -109,6 +110,24 @@ describe("arrays and strings algorithms", () => {
     it("should return original string if the compressed version isn't shorter", () => {
       expect(compress("aa")).to.equal("aa");
       expect(compress("abcdefg")).to.equal("abcdefg");
+    });
+  });
+
+  describe("rotateImage", () => {
+    it("should rotate the matrix input 90 degrees clockwise", () => {
+      const input = [
+        ["a", "a", "a", "a"],
+        ["b", "b", "b", "b"],
+        ["c", "c", "c", "c"],
+        ["d", "d", "d", "d"]
+      ];
+      const expected = [
+        ["d", "c", "b", "a"],
+        ["d", "c", "b", "a"],
+        ["d", "c", "b", "a"],
+        ["d", "c", "b", "a"]
+      ];
+      expect(rotateImage(input)).to.deep.equal(expected);
     });
   });
 });
