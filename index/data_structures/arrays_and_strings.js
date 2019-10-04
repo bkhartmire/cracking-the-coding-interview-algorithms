@@ -1,5 +1,6 @@
 // 1.1 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
 const isUnique = string => {
+  if (typeof string !== "string") throw new Error("input must be a string");
   const characters = {};
   for (const char of string) {
     if (characters[char]) {
@@ -10,6 +11,7 @@ const isUnique = string => {
   }
   return true;
 };
+//TO DO: Follow up and remove additional data structures
 // console.log(isUnique("hello")) // should be false
 // console.log(isUnique("helium")) // should be true
 // console.log(isUnique("unique")) // should be false
@@ -211,3 +213,16 @@ const isRotation = (s1, s2) => {
 // console.log(isRotation("waterbottle", "bottlewater")); //should be true
 // console.log(isRotation("waterbottle", "water")); // should be false
 // console.log(isRotation("waterbottle", "otleratwbe")); // should be false
+
+module.exports = {
+  isUnique,
+  reverseString,
+  isPermutation,
+  replaceSpaces,
+  compress,
+  rotateImage,
+  transformZeros,
+  zerosInMatrix,
+  isSubstringAlternative,
+  isRotation
+};
