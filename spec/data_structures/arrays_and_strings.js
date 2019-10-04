@@ -1,4 +1,8 @@
-const { expect } = require("chai");
+const { expect, use } = require("chai");
+const { spy } = require("sinon");
+const sinonChai = require("sinon-chai");
+use(sinonChai);
+
 const {
   isUnique,
   reverseString,
@@ -6,7 +10,6 @@ const {
   replaceSpaces,
   compress,
   rotateImage,
-  transformZeros,
   zerosInMatrix,
   isSubstringAlternative,
   isRotation
@@ -144,6 +147,32 @@ describe("arrays and strings algorithms", () => {
         ["orange", 1, 0, "konnichiwa"]
       ];
       expect(zerosInMatrix(input)).to.deep.equal(expected);
+    });
+  });
+
+  describe("isSubstringAlternative", () => {
+    beforeEach(() => {
+      spy(Array.prototype, "includes");
+    });
+    afterEach(() => {
+      expect(Array.prototype.includes).to.have.callCount(0);
+      Array.prototype.includes.restore();
+    });
+    it("should throw an error if both inputs are not strings", () => {
+      expect(() => isSubstringAlternative(null)).to.throw;
+      expect(() => isSubstringAlternative(100, "string")).to.throw;
+      expect(() => isSubstringAlternative("pineapple")).to.throw;
+      expect(() => isSubstringAlternative("valid", false)).to.throw;
+      expect(() => isSubstringAlternative(false)).to.throw;
+      expect(() => isSubstringAlternative(["hello", "I'm in an array"])).to
+        .throw;
+      expect(() => isSubstringAlternative({ a: 22 })).to.throw;
+    });
+    it("should return whether one string is a substring of another", () => {
+      expect(isSubstring("waterbottle", "water")).to.be.true;
+      expect(isSubstringAlternative("water", "waterbottle")).to.be.true;
+      expect(isSubstringAlternative("water", "coffee")).to.be.false;
+      expect(isSubstringAlternative("waterbottle", "erbottlewat")).to.be.false;
     });
   });
 });
