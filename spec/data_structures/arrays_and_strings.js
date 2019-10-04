@@ -11,7 +11,6 @@ const {
   compress,
   rotateImage,
   zerosInMatrix,
-  isSubstring,
   isSubstringAlternative,
   isRotation
 } = require("../../index/data_structures/arrays_and_strings");

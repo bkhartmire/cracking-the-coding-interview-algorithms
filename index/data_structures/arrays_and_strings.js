@@ -175,7 +175,6 @@ module.exports = {
   rotateImage,
   transformZeros,
   zerosInMatrix,
-  isSubstring,
   isSubstringAlternative,
   isRotation
 };
