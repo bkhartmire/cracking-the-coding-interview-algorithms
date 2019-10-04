@@ -46,4 +46,23 @@ describe("arrays and strings algorithms", () => {
       expect(() => reverseString({})).to.throw;
     });
   });
+
+  describe("isPermuation", () => {
+    it("should throw an error if both inputs aren't strings", () => {
+      expect(() => isPermutation(null)).to.throw;
+      expect(() => isPermutation(100, "string")).to.throw;
+      expect(() => isPermutation("pineapple")).to.throw;
+      expect(() => isPermutation("valid", false)).to.throw;
+      expect(() => isPermutation(false)).to.throw;
+      expect(() => isPermutation(["hello", "I'm in an array"])).to.throw;
+      expect(() => isPermutation({ a: 22 })).to.throw;
+    });
+    it("should return whether one string is a permuation of the other", () => {
+      expect(isPermutation("hello", "lolhe")).to.be.true;
+      expect(isPermutation("hello", "goodbye")).to.be.false;
+      expect(isPermutation("school master", "the classroom")).to.be.true;
+      expect(isPermutation("elvis", "lives")).to.be.true;
+      expect(isPermutation("apple", "pineapple")).to.be.false;
+    });
+  });
 });
