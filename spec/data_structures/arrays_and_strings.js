@@ -5,6 +5,7 @@ use(sinonChai);
 
 const {
   isUnique,
+  isUniqueAlternative,
   reverseString,
   isPermutation,
   replaceSpaces,
@@ -22,6 +23,10 @@ describe("arrays and strings algorithms", () => {
       expect(isUnique("helium")).to.be.true;
       expect(isUnique("unique")).to.be.false;
       expect(isUnique("uniqlo")).to.be.true;
+      expect(isUniqueAlternative("hello")).to.be.false;
+      expect(isUniqueAlternative("helium")).to.be.true;
+      expect(isUniqueAlternative("unique")).to.be.false;
+      expect(isUniqueAlternative("uniqlo")).to.be.true;
     });
     it("should throw an error if the input isn't a string", () => {
       expect(() => isUnique(null)).to.throw;
@@ -31,6 +36,13 @@ describe("arrays and strings algorithms", () => {
       expect(() => isUnique(false)).to.throw;
       expect(() => isUnique([])).to.throw;
       expect(() => isUnique({})).to.throw;
+      expect(() => isUniqueAlternative(null)).to.throw;
+      expect(() => isUniqueAlternative(100)).to.throw;
+      expect(() => isUniqueAlternative(undefined)).to.throw;
+      expect(() => isUniqueAlternative(true)).to.throw;
+      expect(() => isUniqueAlternative(false)).to.throw;
+      expect(() => isUniqueAlternative([])).to.throw;
+      expect(() => isUniqueAlternative({})).to.throw;
     });
   });
 
