@@ -1,5 +1,4 @@
 // 1.1 Implement an algorithm to determine if a string has all unique characters. What if you cannot use additional data structures?
-//TO DO: Follow up and remove additional data structures
 
 const isUnique = string => {
   if (typeof string !== "string") throw new Error("input must be a string");
@@ -10,6 +9,41 @@ const isUnique = string => {
     } else {
       characters[char] = 1;
     }
+  }
+  return true;
+};
+
+// *** alternative solution that doesn't use any additional data structures:
+
+// helper method that sorts string without converting to array:
+const sort = string => {
+  let changesMade = false;
+  let sortedString = string;
+
+  for (let i = 0; i < string.length - 1; i++) {
+    if (sortedString[i] > sortedString[i + 1]) {
+      changesMade = true;
+      sortedString = sortedString
+        .slice(0, i)
+        .concat(
+          sortedString[i + 1],
+          sortedString[i],
+          sortedString.slice(i + 2)
+        );
+    }
+  }
+
+  if (changesMade) {
+    return sort(sortedString);
+  } else {
+    return sortedString;
+  }
+};
+
+const isUniqueAlternative = string => {
+  let sortedString = sort(string);
+  for (let i = 0; i < string.length - 1; i++) {
+    if (sortedString[i] === sortedString[i + 1]) return false;
   }
   return true;
 };
@@ -168,6 +202,7 @@ const isRotation = (s1, s2) => {
 
 module.exports = {
   isUnique,
+  isUniqueAlternative,
   reverseString,
   isPermutation,
   replaceSpaces,
