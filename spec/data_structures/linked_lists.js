@@ -12,7 +12,6 @@ const {
 let linkedList;
 describe("linked list algorithms", () => {
   beforeEach(() => {
-    console.log("inside before each");
     linkedList = new Node(1);
   });
 
@@ -38,7 +37,28 @@ describe("linked list algorithms", () => {
     });
   });
   describe("findKthToLastNode", () => {
-    it("should", () => {});
+    it("should find the kth to last element of a singly linked list", () => {
+      //Linked List
+      // 1 -> 2 -> 3 -> 4 -> 5
+      const two = new Node(2);
+      linkedList.next = two;
+      const three = new Node(3);
+      two.next = three;
+      const four = new Node(4);
+      three.next = four;
+      const five = new Node(5);
+      four.next = five;
+      expect(findKthToLastNode(linkedList, 1)).to.equal(5);
+      expect(findKthToLastNode(linkedList, 2)).to.equal(4);
+      expect(findKthToLastNode(linkedList, 3)).to.equal(3);
+      expect(findKthToLastNode(linkedList, 4)).to.equal(2);
+      expect(findKthToLastNode(linkedList, 5)).to.equal(1);
+    });
+    it("should throw for invalid input", () => {
+      expect(() => findKthToLastNode(linkedList, -1)).to.throw;
+      expect(() => findKthToLastNode(linkedList, 0)).to.throw;
+      expect(() => findKthToLastNode(linkedList, 10)).to.throw;
+    });
   });
   describe("deleteNode", () => {
     it("should", () => {});
