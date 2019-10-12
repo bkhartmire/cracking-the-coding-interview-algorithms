@@ -1,5 +1,5 @@
 //Singly Linked List
-class Node {
+export class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
@@ -24,7 +24,7 @@ class Node {
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
 
-const removeDups = headNode => {
+export const removeDups = headNode => {
   const hash = {};
   hash[headNode.value] = 1;
   node = headNode;
@@ -57,7 +57,7 @@ const removeDups = headNode => {
 // console.log(head)
 
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
-const findKthToLastNode = (headNode, k) => {
+export const findKthToLastNode = (headNode, k) => {
   const elements = [headNode.value];
   let node = headNode.next;
   while (node.next !== null) {
@@ -86,12 +86,12 @@ const findKthToLastNode = (headNode, k) => {
 
 // oneDup.delete();
 //implemented here as well as as a class method
-const deleteNode = node => {
+export const deleteNode = node => {
   node.value = node.next.value;
   node.next = node.next.next;
 };
 // 2.4 Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x.
-const partition = (headNode, x) => {
+export const partition = (headNode, x) => {
   let node = headNode;
   let lastLessThanX;
   let firstGreaterThanorEqualToX;
@@ -179,7 +179,7 @@ const arrToLinkedList = arr => {
   return nodes[0];
 };
 
-const sumLinkedLists = (head1, head2) => {
+export const sumLinkedLists = (head1, head2) => {
   // if digits are stored in forward order, simply remove all of the reverse methods below
   const num1 = ~~linkedListToArr(head1)
     .reverse()
@@ -212,7 +212,7 @@ const sumLinkedLists = (head1, head2) => {
 // Input: A -> B -> C -> D -> E -> C[the same C as earlier]
 // Output: C
 
-const getLoopedNode = head => {
+export const getLoopedNode = head => {
   // doesn't assume that every value is unique. it is possible for there to be duplicate node values
   const uniqueNodes = [];
   let node = head;
@@ -238,7 +238,7 @@ const getLoopedNode = head => {
 // console.log(getLoopedNode(head));
 
 // 2.7 Implement a function to check if a linked list is a palindrome.
-const isPalindrome = head => {
+export const isPalindrome = head => {
   let result = "";
   let node = head;
   while (node.next !== null) {
