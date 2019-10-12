@@ -40,26 +40,19 @@ const removeDups = headNode => {
 
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
 const findKthToLastNode = (headNode, k) => {
-  const elements = [headNode.value];
-  let node = headNode.next;
+  const elements = [];
+  let node = headNode;
   while (node.next !== null) {
     elements.push(node.value);
     node = node.next;
   }
+  elements.push(node.value);
   if (k === 0 || k < 0) throw new Error("k must be greater than 0");
   if (k > elements.length)
     throw new Error("k cannot be greater than the length of the linked list");
   if (k === 1) return node.value;
-  return elements[elements.length - k + 1];
+  return elements[elements.length - k];
 };
-
-// console.log(findKthToLastNode(head, -1)); // should throw error
-// console.log(findKthToLastNode(head, 0)); // should throw error
-// console.log(findKthToLastNode(head, 1)); // should be 5
-// console.log(findKthToLastNode(head, 2)); // should be 4
-// console.log(findKthToLastNode(head, 3)); // should be 1
-// console.log(findKthToLastNode(head, 4)); // should be 3
-// console.log(findKthToLastNode(head, 10)); // should throw error
 
 // 2.3 Implement an algorithm to delete a node in the middle of a singly linked list, given only access to that node.
 // EXAMPLE
