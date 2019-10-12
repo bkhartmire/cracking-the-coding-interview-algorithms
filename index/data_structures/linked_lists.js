@@ -1,5 +1,5 @@
 //Singly Linked List
-export class Node {
+class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
@@ -24,7 +24,7 @@ export class Node {
 // FOLLOW UP
 // How would you solve this problem if a temporary buffer is not allowed?
 
-export const removeDups = headNode => {
+const removeDups = headNode => {
   const hash = {};
   hash[headNode.value] = 1;
   node = headNode;
@@ -37,27 +37,9 @@ export const removeDups = headNode => {
     node = node.next;
   }
 };
-//Dup Linked List
-// 1 -> 2 -> 2 -> 3 -> 1 -> 4 -> 5
-// const head = new Node(1);
-// const two = new Node(2);
-// head.next = two;
-// const twoDup = new Node(2);
-// two.next = twoDup;
-// const three = new Node(3);
-// twoDup.next = three;
-// const oneDup = new Node(1);
-// three.next = oneDup;
-// const four = new Node(4);
-// oneDup.next = four;
-// const five = new Node(5);
-// four.next = five;
-// console.log(head)
-// removeDups(head);
-// console.log(head)
 
 // 2.2 Implement an algorithm to find the kth to last element of a singly linked list.
-export const findKthToLastNode = (headNode, k) => {
+const findKthToLastNode = (headNode, k) => {
   const elements = [headNode.value];
   let node = headNode.next;
   while (node.next !== null) {
@@ -86,12 +68,12 @@ export const findKthToLastNode = (headNode, k) => {
 
 // oneDup.delete();
 //implemented here as well as as a class method
-export const deleteNode = node => {
+const deleteNode = node => {
   node.value = node.next.value;
   node.next = node.next.next;
 };
 // 2.4 Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x.
-export const partition = (headNode, x) => {
+const partition = (headNode, x) => {
   let node = headNode;
   let lastLessThanX;
   let firstGreaterThanorEqualToX;
@@ -179,7 +161,7 @@ const arrToLinkedList = arr => {
   return nodes[0];
 };
 
-export const sumLinkedLists = (head1, head2) => {
+const sumLinkedLists = (head1, head2) => {
   // if digits are stored in forward order, simply remove all of the reverse methods below
   const num1 = ~~linkedListToArr(head1)
     .reverse()
@@ -212,7 +194,7 @@ export const sumLinkedLists = (head1, head2) => {
 // Input: A -> B -> C -> D -> E -> C[the same C as earlier]
 // Output: C
 
-export const getLoopedNode = head => {
+const getLoopedNode = head => {
   // doesn't assume that every value is unique. it is possible for there to be duplicate node values
   const uniqueNodes = [];
   let node = head;
@@ -238,7 +220,7 @@ export const getLoopedNode = head => {
 // console.log(getLoopedNode(head));
 
 // 2.7 Implement a function to check if a linked list is a palindrome.
-export const isPalindrome = head => {
+const isPalindrome = head => {
   let result = "";
   let node = head;
   while (node.next !== null) {
@@ -271,3 +253,13 @@ export const isPalindrome = head => {
 // i2.next = m2;
 // console.log(isPalindrome(head)); // should be true
 // console.log(isPalindrome(k2)); // should be false
+module.exports = {
+  Node,
+  removeDups,
+  findKthToLastNode,
+  deleteNode,
+  partition,
+  sumLinkedLists,
+  getLoopedNode,
+  isPalindrome
+};
