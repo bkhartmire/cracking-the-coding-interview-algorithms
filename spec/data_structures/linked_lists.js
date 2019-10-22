@@ -36,6 +36,7 @@ describe("linked list algorithms", () => {
       expect(three.next).to.deep.equal(four);
     });
   });
+
   describe("findKthToLastNode", () => {
     it("should find the kth to last element of a singly linked list", () => {
       //Linked List
@@ -60,18 +61,35 @@ describe("linked list algorithms", () => {
       expect(() => findKthToLastNode(linkedList, 10)).to.throw;
     });
   });
+
   describe("deleteNode", () => {
-    it("should", () => {});
+    it("should delete a node in the middle of a singly linked list, given only access to that node", () => {
+      //Linked List
+      // 1 -> 2 -> 3 -> 4
+      const two = new Node(2);
+      linkedList.next = two;
+      const three = new Node(3);
+      two.next = three;
+      const four = new Node(4);
+      three.next = four;
+      expect(two.next).to.deep.equal(three);
+      deleteNode(three);
+      expect(two.next).to.deep.equal(four);
+    });
   });
+
   describe("partition", () => {
     it("should", () => {});
   });
+
   describe("sumLinkedLists", () => {
     it("should", () => {});
   });
+
   describe("getLoopedNode", () => {
     it("should", () => {});
   });
+
   describe("isPalindrome", () => {
     it("should", () => {});
   });
