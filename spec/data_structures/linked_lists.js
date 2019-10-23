@@ -74,12 +74,40 @@ describe("linked list algorithms", () => {
       three.next = four;
       expect(two.next).to.deep.equal(three);
       deleteNode(three);
+      //Linked List should become
+      // 1 -> 2 -> 4
       expect(two.next).to.deep.equal(four);
     });
   });
 
   describe("partition", () => {
-    it("should", () => {});
+    it("should partition a linked list around a value x", () => {
+      // 1 -> 12 -> 2 -> 5 -> 11 -> 2 -> 16 -> 1
+      const twelve = new Node(12);
+      linkedList.next = twelve;
+      const two = new Node(2);
+      twelve.next = two;
+      const five = new Node(5);
+      two.next = five;
+      const eleven = new Node(11);
+      five.next = eleven;
+      const twoDup = new Node(2);
+      eleven.next = twoDup;
+      const sixteen = new Node(16);
+      twoDup.next = sixteen;
+      const oneDup = new Node(1);
+      sixteen.next = oneDup;
+      partition(linkedList, 10);
+      //Linked List should become
+      //1 -> 2-> 5 -> 2 -> 1 -> 12 -> 11 -> 16
+      expect(linkedList.next).to.deep.equal(two);
+      expect(two.next).to.deep.equal(five);
+      expect(five.next).to.deep.equal(twoDup);
+      expect(twoDup.next).to.deep.equal(oneDup);
+      expect(oneDup.next).to.deep.equal(twelve);
+      expect(twelve.next).to.deep.equal(eleven);
+      expect(eleven.next).to.deep.equal(sixteen);
+    });
   });
 
   describe("sumLinkedLists", () => {
