@@ -130,7 +130,22 @@ describe("linked list algorithms", () => {
   });
 
   describe("getLoopedNode", () => {
-    it("should", () => {});
+    it("should return node at the beginning of loop in a circular linked list", () => {
+      // EXAMPLE
+      // Input: A -> B -> C -> D -> E -> C[the same C as earlier]
+      // Output: C
+      const head = new Node("A");
+      const b = new Node("B");
+      head.next = b;
+      const c = new Node("C");
+      b.next = c;
+      const d = new Node("D");
+      c.next = d;
+      const e = new Node("E");
+      d.next = e;
+      e.next = c;
+      expect(getLoopedNode(head)).to.deep.equal(c);
+    });
   });
 
   describe("isPalindrome", () => {
