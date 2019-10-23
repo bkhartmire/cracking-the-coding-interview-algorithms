@@ -59,7 +59,6 @@ const findKthToLastNode = (headNode, k) => {
 // Input: the node c from the linked list a -> b -> c -> d -> e
 // Result: nothing is returned, but the new linked list looks like a -> b -> d -> e
 
-// oneDup.delete();
 //implemented here as well as as a class method
 const deleteNode = node => {
   node.value = node.next.value;
@@ -102,24 +101,6 @@ const partition = (headNode, x) => {
   lastGreaterThanorEqualToX.next = null;
   lastLessThanX.next = firstGreaterThanorEqualToX;
 };
-
-// 12 -> 2 -> 5 -> 11 -> 2 -> 16 -> 1
-// const head = new Node(12);
-// const two = new Node(2);
-// head.next = two;
-// const five = new Node(5);
-// two.next = five;
-// const eleven = new Node(11);
-// five.next = eleven;
-// const twoDup = new Node(2);
-// eleven.next = twoDup;
-// const sixteen = new Node(16);
-// twoDup.next = sixteen;
-// const one = new Node(1);
-// sixteen.next = one;
-// console.log(head);
-// partition(head, 10);
-// console.log(head);
 
 // 2.5 You have two numbers represented by a linked list, where each node contains a single digit.
 // The digits are stored in reverse order, such that the 1's digit is at the head of the list.
