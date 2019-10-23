@@ -147,20 +147,6 @@ const sumLinkedLists = (head1, head2) => {
   return arrToLinkedList(sumArr.reverse());
 };
 
-// const head1 = new Node(7);
-// const one = new Node(1);
-// head1.next = one;
-// const six = new Node(6);
-// one.next = six;
-
-// const head2 = new Node(5);
-// const nine = new Node(9);
-// head2.next = nine;
-// const two = new Node(2);
-// nine.next = two;
-
-// console.log(sumLinkedLists(head1, head2));
-
 // 2.6 Given a circular linked list, implement an algorithm which returns the node at the beginning of the loop.
 // DEFINITION
 // Circular linked list: A (corrupt) linked list in which a node's next pointer points to an earlier node, so as to make a loop in the linked list.
