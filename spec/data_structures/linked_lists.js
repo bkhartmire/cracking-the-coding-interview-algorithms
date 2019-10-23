@@ -149,6 +149,24 @@ describe("linked list algorithms", () => {
   });
 
   describe("isPalindrome", () => {
-    it("should", () => {});
+    it("should return boolean determening whether linked list is a palidrome", () => {
+      // MIKE KIM
+      const head = new Node("M");
+      const i1 = new Node("I");
+      head.next = i1;
+      const k1 = new Node("K");
+      i1.next = k1;
+      const e1 = new Node("E");
+      k1.next = e1;
+      const k2 = new Node("K");
+      e1.next = k2;
+      const i2 = new Node("I");
+      k2.next = i2;
+      const m2 = new Node("M");
+      i2.next = m2;
+      expect(isPalindrome(head)).to.be.true;
+      m2.next = new Node("Linked list is no longer a palindrome!");
+      expect(isPalindrome(head)).to.be.false;
+    });
   });
 });
