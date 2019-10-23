@@ -128,7 +128,7 @@ const linkedListToArr = head => {
 
 // helper method takes in array of values and returns linked list in forward order
 const arrToLinkedList = arr => {
-  const nodes = arr.map(value => new Node(value));
+  const nodes = arr.map(value => new Node(~~value));
   for (let i = 0; i < arr.length - 1; i++) {
     nodes[i].next = nodes[i + 1];
   }
