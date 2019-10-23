@@ -111,7 +111,22 @@ describe("linked list algorithms", () => {
   });
 
   describe("sumLinkedLists", () => {
-    it("should", () => {});
+    it("should return new linked list that represents sum of two linked list inputs with digits represented in reverse order", () => {
+      // EXAMPLE
+      // Input: (7 -> 1 -> 6) + (5 -> 9 -> 2). That is, 617 + 295
+      // Output: 2 -> 1 -> 9. That is, 912.
+      const linkedListA = new Node(7);
+      linkedListA.next = new Node(1);
+      linkedListA.next.next = new Node(6);
+      const linkedListB = new Node(5);
+      linkedListB.next = new Node(9);
+      linkedListB.next.next = new Node(2);
+      const expected = new Node(2);
+      expected.next = new Node(1);
+      expected.next.next = new Node(9);
+      const actual = sumLinkedLists(linkedListA, linkedListB);
+      expect(actual).to.deep.equal(expected);
+    });
   });
 
   describe("getLoopedNode", () => {
