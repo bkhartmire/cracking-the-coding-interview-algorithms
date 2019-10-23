@@ -167,18 +167,6 @@ const getLoopedNode = head => {
   }
 };
 
-// const head = new Node("A");
-// const b = new Node("B");
-// head.next = b;
-// const c = new Node("C");
-// b.next = c;
-// const d = new Node("D");
-// c.next = d;
-// const e = new Node("E");
-// d.next = e;
-// e.next = c;
-// console.log(getLoopedNode(head));
-
 // 2.7 Implement a function to check if a linked list is a palindrome.
 const isPalindrome = head => {
   let result = "";
