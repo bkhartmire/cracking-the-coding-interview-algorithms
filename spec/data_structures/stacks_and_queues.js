@@ -8,6 +8,12 @@ describe("SetOfStacks", () => {
     const newSet = new SetOfStacks(5);
     expect(newSet.capacity).to.equal(5);
   });
+  it("should have push, pop, and popAt methods", () => {
+    const newSet = new SetOfStacks(1);
+    expect(typeof newSet.push).to.equal("function");
+    expect(typeof newSet.pop).to.equal("function");
+    expect(typeof newSet.popAt).to.equal("function");
+  });
   it("should create a new stack if pushing item exceeds capacity", () => {
     const newSet = new SetOfStacks(2);
     newSet.push("a");
