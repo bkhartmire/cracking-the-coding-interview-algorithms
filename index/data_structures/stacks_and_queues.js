@@ -70,4 +70,4 @@ class SetOfStacks {
 // Create the data structures to maintain this system and implement operations such as enqueue, dequeueAny, dequeueDog and dequeueCat.
 // You may use the built-in LinkedList data structure.
 
-module.exports = SetOfStacks;
+module.exports = { SetOfStacks };
