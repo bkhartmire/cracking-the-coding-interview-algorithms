@@ -6,8 +6,9 @@ class Node {
 }
 
 class Stack {
-  constructor(node) {
-    this.top = node;
+  constructor(item) {
+    const newItem = new Node(item);
+    this.top = newItem;
   }
 
   pop() {
@@ -26,8 +27,15 @@ class Stack {
 
 class Queue {
   constructor(item) {
-    this.first = item;
-    this.last = item;
+    const newItem = new Node(item);
+    this.first = newItem;
+    this.last = newItem;
+  }
+
+  enqueue(item) {
+    const newItem = new Node(item);
+    this.last.next = newItem;
+    this.last = newItem;
   }
 }
 
