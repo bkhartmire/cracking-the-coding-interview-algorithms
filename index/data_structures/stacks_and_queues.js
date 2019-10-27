@@ -1,3 +1,16 @@
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.next = null;
+  }
+}
+
+class Stack {
+  constructor(node) {
+    this.top = node;
+  }
+}
+
 // 3.1 Describe how you could use a single array to implement three stacks.
 
 //array of 3 nested arrays representing stacks
