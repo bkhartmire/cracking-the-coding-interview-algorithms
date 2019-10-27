@@ -9,6 +9,15 @@ class Stack {
   constructor(node) {
     this.top = node;
   }
+
+  pop() {
+    if (this.top === null) return null;
+    const item = this.top;
+    this.top = item.next;
+    return item;
+  }
+
+  push() {}
 }
 
 // 3.1 Describe how you could use a single array to implement three stacks.
