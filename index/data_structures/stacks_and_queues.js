@@ -34,7 +34,11 @@ class Queue {
 
   enqueue(item) {
     const newItem = new Node(item);
-    this.last.next = newItem;
+    if (this.first === null) {
+      this.first = newItem;
+    } else {
+      this.last.next = newItem;
+    }
     this.last = newItem;
   }
 }
