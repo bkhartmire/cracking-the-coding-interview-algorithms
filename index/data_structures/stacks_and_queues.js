@@ -17,7 +17,11 @@ class Stack {
     return item;
   }
 
-  push() {}
+  push(item) {
+    const newItem = new Node(item);
+    newItem.next = this.top;
+    this.top = newItem;
+  }
 }
 
 // 3.1 Describe how you could use a single array to implement three stacks.
