@@ -41,6 +41,12 @@ class Queue {
     }
     this.last = newItem;
   }
+
+  dequeue() {
+    const item = this.first;
+    this.first = item.next;
+    return item;
+  }
 }
 
 // 3.1 Describe how you could use a single array to implement three stacks.
