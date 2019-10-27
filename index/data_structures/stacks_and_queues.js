@@ -43,8 +43,10 @@ class Queue {
   }
 
   dequeue() {
+    if (this.first === null) return null;
     const item = this.first;
     this.first = item.next;
+    if (this.first === null) this.last = null;
     return item;
   }
 }
