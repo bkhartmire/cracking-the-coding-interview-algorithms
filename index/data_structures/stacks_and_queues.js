@@ -24,6 +24,13 @@ class Stack {
   }
 }
 
+class Queue {
+  constructor(item) {
+    this.first = item;
+    this.last = item;
+  }
+}
+
 // 3.1 Describe how you could use a single array to implement three stacks.
 
 //array of 3 nested arrays representing stacks
